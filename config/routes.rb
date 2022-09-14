@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get "about", to: "about#index"
   root "main#index"
 
+  get "password", to: "passwords#edit"
+  patch "password", to: "passwords#update"
+
   get 'sign_up', to: "registrations#new"
   post "sign_up", to: "registrations#create"
 
@@ -11,4 +14,6 @@ Rails.application.routes.draw do
 
   delete "logout", to: "sessions#destroy"
 
+  get "password/reset", to: "password_resets#new"
+  post "password/reset", to: "password_resets#create"
 end
